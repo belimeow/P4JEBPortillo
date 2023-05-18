@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private float verticalInput;
    
     public Vector2 turn;
-
+    Rigidbody rigidbody;
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +30,10 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
 
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 agent.destination = hit.point;
             }
