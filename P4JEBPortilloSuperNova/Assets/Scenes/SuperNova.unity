@@ -2651,7 +2651,7 @@ GameObject:
   - component: {fileID: 263330754}
   - component: {fileID: 263330753}
   - component: {fileID: 263330752}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -21479,7 +21479,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148476193871}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35ec01cf0ce643d4ea033f6ddc755869, type: 3}
   m_Name: 
@@ -21514,6 +21514,25 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &919132148476193875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148476193871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf3dea9dc10cc8438a8bac5c68746f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 7
+  groundDrag: 5
+  playerHeight: 2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 1024
+  orientation: {fileID: 755355827}
 --- !u!1001 &1732805663892918014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21559,7 +21578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271662418968950795, guid: a9ed174545f3f3d44847d48f25a88826, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0034
       objectReference: {fileID: 0}
     - target: {fileID: 2271662418968950795, guid: a9ed174545f3f3d44847d48f25a88826, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21567,7 +21586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2271662418968950795, guid: a9ed174545f3f3d44847d48f25a88826, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.0151
       objectReference: {fileID: 0}
     - target: {fileID: 2271662418968950795, guid: a9ed174545f3f3d44847d48f25a88826, type: 3}
       propertyPath: m_LocalRotation.w
