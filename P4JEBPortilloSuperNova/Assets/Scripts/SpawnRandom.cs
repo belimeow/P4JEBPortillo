@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnRandom : MonoBehaviour
 {
-    public Tree prefab;
+    public GameObject treePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +17,6 @@ public class SpawnRandom : MonoBehaviour
         float randomRange = Random.Range(-10.0f, 10.0f);
         Vector3 randomPosition = new Vector3(randomRange, 0, 0);
 
-        var Tree = Instantiate(TreePrefab, randomPosition, Quaternion.identity);
+        var Tree = Instantiate(treePrefab, randomPosition, Quaternion.identity);
     }
 }
