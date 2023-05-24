@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -18,6 +19,9 @@ public class Projectile : MonoBehaviour
 
     public Camera fpsCam;
     public Transform attackPoint;
+
+    public GameObject muzzleFlash;
+    public TextMeshProUGUI ammunitionDisplay;
 
     public bool allowInvoke = true;
 
@@ -38,6 +42,10 @@ readyToShoot = true;
     {
         if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
         else shooting = Input.GetKeyDown(KeyCode.Mouse0);
+
+        if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
+
+        if(readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();
 
         if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
         {
@@ -71,7 +79,42 @@ readyToShoot = true;
 
         currentBullet.transform.forward = directionWithSpread.normalized;
 
+        currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
+        currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForces, ForceMode.Impulse);
+
+
+
         bulletsLeft--;
         bulletsShot++;
+
+        if(allowInvoke)
+        {
+            Invoke("ResetShot", timeBetweenShooting);
+            allowInvoke = false;
+        }
+
+        if (bulletsShot < bulletsPerTap && bulletsLeft > 0)
+            Invoke("Shoot", timeBetweenShots);
+
+    }
+
+    private void ResetShot()
+    {
+        readyToShoot = true;
+        allowInvoke = true;
+
+    }
+
+    private void Reload()
+    {
+        reloading = true;
+        Invoke("ReloadFinished", reloadTime);
+
+    }
+
+    private void ReloadingFinished()
+    {
+        bulletsLeft = magazingSize;
+        reloading = false;
     }
 }
