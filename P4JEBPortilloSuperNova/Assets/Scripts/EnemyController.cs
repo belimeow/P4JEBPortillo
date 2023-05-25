@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        player = GameObject.Find("PlayerObj").transform;
+        player = GameObject.Find("Pinky for now").transform;
         agent = GetComponent<NavMeshAgent>();
     }
 

@@ -43,8 +43,8 @@ readyToShoot = true;
 
     private void MyInput()
     {
-        if (allowButtonHold) shooting = Input.GetKey(KeyCode.Mouse0);
-        else shooting = Input.GetKeyDown(KeyCode.Mouse0);
+        if (allowButtonHold) shooting = Input.GetKey(KeyCode.G);
+        else shooting = Input.GetKeyDown(KeyCode.G);
 
         if (Input.GetKeyDown(KeyCode.R) && bulletsLeft < magazineSize && !reloading) Reload();
 
