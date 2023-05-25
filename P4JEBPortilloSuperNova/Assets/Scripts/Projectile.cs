@@ -36,6 +36,9 @@ readyToShoot = true;
     private void Update()
     {
         MyInput();
+
+        if (ammunitionDisplay != null)
+            ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
     }
 
     private void MyInput()
@@ -82,7 +85,9 @@ readyToShoot = true;
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForces, ForceMode.Impulse);
 
-
+        if (muzzleFlash != null)
+            Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity); if (muzzleFlash != null)
+            Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
 
         bulletsLeft--;
         bulletsShot++;
@@ -114,7 +119,7 @@ readyToShoot = true;
 
     private void ReloadingFinished()
     {
-        bulletsLeft = magazingSize;
+      
         reloading = false;
     }
 }
