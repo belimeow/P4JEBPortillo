@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class DetectCollision : MonoBehaviour
 {
+    private GameManager gameManager;
+
+    public int pointValue;
+   
+
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
@@ -13,6 +18,8 @@ public class DetectCollision : MonoBehaviour
     {
         
     }
+
+   
 
     // Update is called once per frame
     void Update()
